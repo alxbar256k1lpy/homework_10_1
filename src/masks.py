@@ -1,6 +1,8 @@
-def get_mask_card_number(card_number: str) -> str:
-    """Функция маскировки номера банковской карты"""
+"""Модуль для маскирования номеров карт и счетов."""
 
+
+def get_mask_card_number(card_number: str) -> str:
+    """Функция маскировки номера банковской карты."""
     card_number_str = str(card_number)
     if len(card_number_str) != 16:
         return "Некорректный номер карты"
@@ -9,8 +11,7 @@ def get_mask_card_number(card_number: str) -> str:
 
 
 def get_mask_account(mask_account: str) -> str:
-    """Функция маскировки номера банковского счета"""
-
+    """Функция маскировки номера банковского счета."""
     mask_account_str = str(mask_account)
     if len(mask_account_str) != 20:
         return "Некорректный номер счета"

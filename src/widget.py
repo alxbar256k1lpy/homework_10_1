@@ -1,3 +1,5 @@
+"""Модуль с функциями для обработки данных виджета."""
+
 from masks import get_mask_account, get_mask_card_number
 
 
@@ -11,7 +13,6 @@ def mask_account_card(number: str) -> str:
 
 def get_date(date_string: str) -> str:
     """Принимает строку с датой в ISO-формате и возвращает её в формате ДД.ММ.ГГГГ."""
-
     year = date_string[0:4]
     month = date_string[5:7]
     day = date_string[8:10]
