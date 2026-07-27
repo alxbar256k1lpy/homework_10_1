@@ -1,6 +1,5 @@
 """Модуль для маскирования номеров карт и счетов."""
 
-
 def get_mask_card_number(card_number: str) -> str:
     """Функция маскировки номера банковской карты."""
     card_number_str = str(card_number)
