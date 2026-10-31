@@ -1,6 +1,7 @@
 """Модуль для конвертации валют транзакций через внешнее API."""
 
 import os
+
 import requests
 from dotenv import load_dotenv
 
