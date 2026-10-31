@@ -1,13 +1,15 @@
+"""Модуль для конвертации валют транзакций через внешнее API."""
+
 import os
 import requests
 from dotenv import load_dotenv
 
+# Загружаем переменные из скрытого файла .env, который лежит в корне
 load_dotenv()
 
 
 def convert_transaction_to_rub(transaction):
-    """Принимает транзакцию и возвращает сумму операции в рублях (float).
-    """
+    """Принимает транзакцию и возвращает сумму операции в рублях."""
     operation_amount = transaction.get("operationAmount", {})
     amount = float(operation_amount.get("amount", 0.0))
     currency_code = operation_amount.get("currency", {}).get("code", "RUB")
