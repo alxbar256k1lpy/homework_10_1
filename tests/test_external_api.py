@@ -1,3 +1,4 @@
+import requests
 import unittest
 from unittest.mock import patch, Mock
 from src.external_api import convert_transaction_to_rub
@@ -35,6 +36,22 @@ class TestExternalAPI(unittest.TestCase):
 
         self.assertEqual(result, 7500.0)
         mock_get.assert_called_once()
+
+    @patch("src.external_api.requests.get")
+    def test_convert_api_error(self, mock_get):
+        """Тест: если при запросе к API произошла ошибка сети, функция возвращает 0.0."""
+        transaction = {
+            "operationAmount": {
+                "amount": "100.00",
+                "currency": {"name": "USD", "code": "USD"}
+            }
+        }
+
+        mock_get.side_effect = requests.RequestException
+
+        result = convert_transaction_to_rub(transaction)
+
+        self.assertEqual(result, 0.0)
 
 
 if __name__ == "__main__":
