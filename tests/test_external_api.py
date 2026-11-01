@@ -19,7 +19,7 @@ class TestExternalAPI(unittest.TestCase):
 
     @patch("src.external_api.requests.get")
     def test_convert_usd_success(self, mock_get):
-        """Тест: успешный перехват запроса к API и конвертация USD в рубли."""
+        """Тест: успешный перехват запроса к API /convert и возврат результата."""
         transaction = {
             "operationAmount": {
                 "amount": "100.00",
@@ -29,7 +29,7 @@ class TestExternalAPI(unittest.TestCase):
 
         mock_response = Mock()
         mock_response.status_code = 200
-        mock_response.json.return_value = {"rates": {"RUB": 75.0}}
+        mock_response.json.return_value = {"success": True, "result": 7500.0}
         mock_get.return_value = mock_response
 
         result = convert_transaction_to_rub(transaction)
