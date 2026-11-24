@@ -1,9 +1,9 @@
 """Модуль для конвертации валют транзакций через внешнее API."""
 
+import os
 
 import requests
 from dotenv import load_dotenv
-
 
 load_dotenv()
 
@@ -39,7 +39,6 @@ def convert_transaction_to_rub(transaction):
 
 
 if __name__ == "__main__":
-    import os
 
     from src.utils import get_financial_transactions
 
