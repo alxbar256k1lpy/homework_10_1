@@ -1,10 +1,15 @@
-import unittest
-from unittest.mock import patch, mock_open
+"""Модуль тестирования функций утилиты для работы с транзакциями."""
+
 import json
+import unittest
+from unittest.mock import mock_open
+from unittest.mock import patch
+
 from src.utils import get_financial_transactions
 
 
 class TestUtils(unittest.TestCase):
+    """Тесты для загрузки финансовых транзакций из JSON."""
 
     def test_get_transactions_success(self):
         """Тест: успешное чтение корректного списка транзакций."""
